@@ -127,6 +127,13 @@ The application follows a full-stack monorepo architecture with clear separation
 3. Static assets served by Express in production
 4. Database schema pushed via Drizzle migrations
 
+### GitHub Pages Deployment
+- **Static Version**: Uses localStorage for single-device multiplayer
+- **Automated Deployment**: GitHub Actions workflow deploys on push to main
+- **Build Output**: `dist/public/` directory contains all static assets
+- **Base Path**: Configured for `/SocialCardClash/` repository path
+- **Features**: Works offline, mobile PWA support, dark theme with WCAG compliance
+
 ### Architecture Decisions
 
 **Polling vs WebSockets**: Chose HTTP polling over WebSockets for simplicity and reliability. The 1-second polling interval provides sufficient real-time feel for the game mechanics while being easier to implement and debug.

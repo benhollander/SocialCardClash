@@ -2,7 +2,7 @@
 
 ## Overview
 
-Party Cards is a real-time multiplayer party game where players race to complete card challenges. The application features a modern web stack with React frontend, Express backend, and PostgreSQL database. Players can create or join rooms, participate in real-time gameplay, and compete to finish their card deck first.
+Party Cards is a real-time multiplayer party game where players in the same room match action cards and perform physical activities together. The application features a modern web stack with React frontend, Express backend, and in-memory storage. Players get identical randomized decks of 25 cards, yell out their current card to find matches, perform actions together, and compete to finish their deck first.
 
 ## User Preferences
 

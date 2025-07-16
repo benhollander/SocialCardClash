@@ -161,8 +161,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       if (action === 'swipe_right') {
         // Player found a match, advance to next card
-        const newCardIndex = player.currentCardIndex + 1;
-        const cardsCompleted = player.cardsCompleted + 1;
+        const newCardIndex = (player.currentCardIndex || 0) + 1;
+        const cardsCompleted = (player.cardsCompleted || 0) + 1;
         
         await storage.updatePlayer(playerId, {
           currentCardIndex: newCardIndex,
@@ -180,7 +180,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         // Check if all players swiped left
         const allPlayers = await storage.getPlayersByRoomId(room.id);
         // For simplicity, we'll just advance the card after swipe left
-        const newCardIndex = player.currentCardIndex + 1;
+        const newCardIndex = (player.currentCardIndex || 0) + 1;
         
         await storage.updatePlayer(playerId, {
           currentCardIndex: newCardIndex

@@ -18,10 +18,10 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/join" component={JoinRoom} />
       <Route path="/create" component={CreateRoom} />
-      <Route path="/room/:code" component={WaitingRoom} />
-      <Route path="/room/:code/game" component={Game} />
-      <Route path="/room/:code/countdown" component={Countdown} />
-      <Route path="/room/:code/win" component={Win} />
+      <Route path="/room/:code" component={(props) => <WaitingRoom code={props.params.code} />} />
+      <Route path="/room/:code/game" component={(props) => <Game code={props.params.code} />} />
+      <Route path="/room/:code/countdown" component={(props) => <Countdown code={props.params.code} />} />
+      <Route path="/room/:code/win" component={(props) => <Win code={props.params.code} />} />
       <Route component={NotFound} />
     </Switch>
   );

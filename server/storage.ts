@@ -87,11 +87,14 @@ export class MemStorage implements IStorage {
     }
     
     const player: Player = { 
-      ...insertPlayer, 
       id,
+      name: insertPlayer.name,
+      roomId: insertPlayer.roomId || null,
+      socketId: insertPlayer.socketId,
       cards: deck,
       currentCardIndex: 0,
       isReady: false,
+      isHost: insertPlayer.isHost || false,
       cardsCompleted: 0
     };
     this.players.set(id, player);
@@ -123,7 +126,14 @@ export class MemStorage implements IStorage {
   // Game state operations
   async createGameState(insertGameState: InsertGameState): Promise<GameState> {
     const id = this.currentGameStateId++;
-    const gameState: GameState = { ...insertGameState, id };
+    const gameState: GameState = { 
+      id,
+      roomId: insertGameState.roomId || null,
+      countdownStarted: insertGameState.countdownStarted || false,
+      countdownEnd: insertGameState.countdownEnd || null,
+      allPlayersSwipedLeft: insertGameState.allPlayersSwipedLeft || false,
+      winnerId: insertGameState.winnerId || null
+    };
     this.gameStates.set(id, gameState);
     return gameState;
   }

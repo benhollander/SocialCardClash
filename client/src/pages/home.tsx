@@ -27,6 +27,22 @@ export default function Home() {
           </Link>
         </div>
         
+        <div className="bg-card rounded-2xl p-6 border border-border mb-6">
+          <h3 className="font-semibold text-card-foreground mb-3">🌐 Cross-Device Multiplayer</h3>
+          <p className="text-muted-foreground text-sm mb-4">
+            Play across multiple phones and devices with real-time sync
+          </p>
+          <Link href="/firebase-setup">
+            <Button
+              variant="outline"
+              className="w-full bg-secondary text-secondary-foreground rounded-xl py-3 px-4 font-semibold"
+            >
+              <i className="fas fa-cloud mr-2"></i>
+              Setup Cross-Device Play
+            </Button>
+          </Link>
+        </div>
+        
         <div className="text-center text-sm text-muted-foreground">
           <p>Gather your friends in the same room</p>
           <p>and get ready to party! 🎉</p>

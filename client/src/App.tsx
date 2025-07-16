@@ -11,6 +11,7 @@ import WaitingRoom from "@/pages/waiting-room";
 import Game from "@/pages/game";
 import Countdown from "@/pages/countdown";
 import Win from "@/pages/win";
+import FirebaseSetup from "@/pages/firebase-setup";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/join" component={JoinRoom} />
       <Route path="/create" component={CreateRoom} />
+      <Route path="/firebase-setup" component={FirebaseSetup} />
       <Route path="/room/:code" component={(props) => <WaitingRoom code={props.params.code} />} />
       <Route path="/room/:code/game" component={(props) => <Game code={props.params.code} />} />
       <Route path="/room/:code/countdown" component={(props) => <Countdown code={props.params.code} />} />

@@ -64,49 +64,49 @@ export default function WaitingRoom({ code }: WaitingRoomProps) {
 
   if (isLoading) {
     return (
-      <div className="max-w-sm mx-auto min-h-screen bg-white shadow-lg flex items-center justify-center">
+      <div className="max-w-sm mx-auto min-h-screen bg-background shadow-lg flex items-center justify-center">
         <div className="text-center">
           <i className="fas fa-spinner fa-spin text-4xl text-primary mb-4"></i>
-          <p className="text-gray-600">Loading room...</p>
+          <p className="text-muted-foreground">Loading room...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-sm mx-auto min-h-screen bg-white shadow-lg">
+    <div className="max-w-sm mx-auto min-h-screen bg-background shadow-lg">
       <div className="p-6 min-h-screen">
         <div className="mb-6">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold text-gray-900">Waiting Room</h2>
+            <h2 className="text-2xl font-bold text-foreground">Waiting Room</h2>
             <button onClick={handleLeaveRoom} className="text-error">
               <i className="fas fa-times text-xl"></i>
             </button>
           </div>
           
-          <div className="bg-accent/10 rounded-2xl p-4 mb-6">
+          <div className="bg-card rounded-2xl p-4 mb-6 border border-border">
             <div className="text-center">
-              <p className="text-sm text-gray-600 mb-1">Room Code</p>
+              <p className="text-sm text-card-foreground mb-1">Room Code</p>
               <p className="text-3xl font-bold tracking-widest text-accent">{code}</p>
-              <p className="text-xs text-gray-500 mt-1">Share this code with your friends</p>
+              <p className="text-xs text-muted-foreground mt-1">Share this code with your friends</p>
             </div>
           </div>
         </div>
         
         <div className="mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">
+          <h3 className="text-lg font-semibold text-foreground mb-3">
             Players <span className="text-primary">({data?.players?.length || 0}/8)</span>
           </h3>
           
           <div className="space-y-3">
             {data?.players?.map((player: any) => (
-              <div key={player.id} className="flex items-center justify-between bg-gray-50 rounded-xl p-3">
+              <div key={player.id} className="flex items-center justify-between bg-card rounded-xl p-3 border border-border">
                 <div className="flex items-center">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-semibold">
+                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-semibold">
                     <span>{player.name.charAt(0).toUpperCase()}</span>
                   </div>
-                  <span className="ml-3 font-medium">{player.name}</span>
-                  {player.isHost && <span className="ml-2 text-xs bg-accent text-white px-2 py-1 rounded">HOST</span>}
+                  <span className="ml-3 font-medium text-card-foreground">{player.name}</span>
+                  {player.isHost && <span className="ml-2 text-xs bg-accent text-accent-foreground px-2 py-1 rounded">HOST</span>}
                 </div>
                 <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
               </div>
@@ -115,9 +115,9 @@ export default function WaitingRoom({ code }: WaitingRoomProps) {
         </div>
         
         <div className="mt-auto">
-          <div className="bg-blue-50 rounded-2xl p-4 mb-6">
-            <h4 className="font-semibold text-gray-900 mb-2">How to Play:</h4>
-            <ul className="text-sm text-gray-600 space-y-1">
+          <div className="bg-card rounded-2xl p-4 mb-6 border border-border">
+            <h4 className="font-semibold text-card-foreground mb-2">How to Play:</h4>
+            <ul className="text-sm text-muted-foreground space-y-1">
               <li>• Everyone gets the same randomized deck</li>
               <li>• Find someone with a matching card</li>
               <li>• Do the action together and swipe right</li>
@@ -128,7 +128,7 @@ export default function WaitingRoom({ code }: WaitingRoomProps) {
           {isHost && (
             <Button
               onClick={handleStartGame}
-              className="w-full bg-secondary text-white rounded-2xl py-4 px-6 text-lg font-semibold shadow-lg active:scale-95 transition-transform"
+              className="w-full bg-secondary text-secondary-foreground rounded-2xl py-4 px-6 text-lg font-semibold shadow-lg active:scale-95 transition-transform"
             >
               <i className="fas fa-play mr-2"></i>
               Start Game

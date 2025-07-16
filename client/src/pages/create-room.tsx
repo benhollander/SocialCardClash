@@ -47,32 +47,32 @@ export default function CreateRoom() {
   };
 
   return (
-    <div className="max-w-sm mx-auto min-h-screen bg-white shadow-lg">
+    <div className="max-w-sm mx-auto min-h-screen bg-background shadow-lg">
       <div className="p-6 min-h-screen flex flex-col justify-center">
         <div className="mb-8">
           <button onClick={() => setLocation("/")} className="text-primary mb-4">
             <i className="fas fa-arrow-left mr-2"></i>
             Back
           </button>
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Create Room</h2>
-          <p className="text-gray-600">Set up a new game room</p>
+          <h2 className="text-3xl font-bold text-foreground mb-2">Create Room</h2>
+          <p className="text-muted-foreground">Set up a new game room</p>
         </div>
         
         <div className="mb-8">
-          <Label className="block text-sm font-medium text-gray-700 mb-2">Your Name</Label>
+          <Label className="block text-sm font-medium text-foreground mb-2">Your Name</Label>
           <Input
             type="text"
             value={hostName}
             onChange={(e) => setHostName(e.target.value)}
             placeholder="Enter your name"
-            className="w-full bg-gray-50 border-2 border-gray-200 rounded-2xl py-4 px-6 text-lg focus:border-primary focus:outline-none"
+            className="w-full bg-input border-2 border-border rounded-2xl py-4 px-6 text-lg text-card-foreground focus:border-primary focus:outline-none"
           />
         </div>
         
         <Button
           onClick={handleCreate}
           disabled={isLoading}
-          className="w-full bg-primary text-white rounded-2xl py-4 px-6 text-lg font-semibold shadow-lg active:scale-95 transition-transform"
+          className="w-full bg-primary text-primary-foreground rounded-2xl py-4 px-6 text-lg font-semibold shadow-lg active:scale-95 transition-transform"
         >
           {isLoading ? (
             <i className="fas fa-spinner fa-spin mr-2"></i>

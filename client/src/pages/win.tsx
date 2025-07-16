@@ -32,14 +32,14 @@ export default function Win({ code }: WinProps) {
   };
 
   return (
-    <div className="max-w-sm mx-auto min-h-screen bg-white shadow-lg">
+    <div className="max-w-sm mx-auto min-h-screen bg-background shadow-lg">
       <div className="p-6 min-h-screen flex flex-col justify-center text-center">
         <div className="mb-8">
           <div className="text-8xl mb-4">🏆</div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-4xl font-bold text-foreground mb-2">
             {isWinner ? "You Won!" : `${winner?.name} Won!`}
           </h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-muted-foreground text-lg">
             {isWinner 
               ? "Congratulations! You completed all your cards first!"
               : "Better luck next time!"
@@ -48,21 +48,21 @@ export default function Win({ code }: WinProps) {
         </div>
         
         {/* Winner Stats */}
-        <div className="bg-gradient-to-r from-accent/20 to-secondary/20 rounded-2xl p-6 mb-8">
-          <h3 className="font-semibold text-gray-900 mb-4">Final Results</h3>
+        <div className="bg-card rounded-2xl p-6 mb-8 border border-border">
+          <h3 className="font-semibold text-card-foreground mb-4">Final Results</h3>
           
           <div className="space-y-3">
             {sortedPlayers.map((player: any, index: number) => (
               <div key={player.id} className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className={`w-8 h-8 ${index === 0 ? 'bg-accent' : 'bg-gray-400'} rounded-full flex items-center justify-center text-white font-bold text-sm mr-3`}>
+                  <div className={`w-8 h-8 ${index === 0 ? 'bg-accent text-accent-foreground' : 'bg-muted text-muted-foreground'} rounded-full flex items-center justify-center font-bold text-sm mr-3`}>
                     {index + 1}
                   </div>
-                  <span className="font-medium">
+                  <span className="font-medium text-card-foreground">
                     {player.id === parseInt(playerId || "0") ? "You" : player.name}
                   </span>
                 </div>
-                <span className="text-sm text-gray-600">{player.cardsCompleted}/25 cards</span>
+                <span className="text-sm text-muted-foreground">{player.cardsCompleted}/25 cards</span>
               </div>
             ))}
           </div>
@@ -71,7 +71,7 @@ export default function Win({ code }: WinProps) {
         <div className="space-y-4">
           <Button
             onClick={handlePlayAgain}
-            className="w-full bg-primary text-white rounded-2xl py-4 px-6 text-lg font-semibold shadow-lg active:scale-95 transition-transform"
+            className="w-full bg-primary text-primary-foreground rounded-2xl py-4 px-6 text-lg font-semibold shadow-lg active:scale-95 transition-transform"
           >
             <i className="fas fa-redo mr-2"></i>
             Play Again
@@ -80,7 +80,7 @@ export default function Win({ code }: WinProps) {
           <Button
             onClick={handleBackToHome}
             variant="outline"
-            className="w-full bg-white border-2 border-gray-200 text-gray-700 rounded-2xl py-4 px-6 text-lg font-semibold active:scale-95 transition-transform"
+            className="w-full bg-card border-2 border-border text-card-foreground rounded-2xl py-4 px-6 text-lg font-semibold active:scale-95 transition-transform"
           >
             <i className="fas fa-home mr-2"></i>
             Back to Home

@@ -78,26 +78,26 @@ export default function Game({ code }: GameProps) {
 
   if (isLoading) {
     return (
-      <div className="max-w-sm mx-auto min-h-screen bg-white shadow-lg flex items-center justify-center">
+      <div className="max-w-sm mx-auto min-h-screen bg-background shadow-lg flex items-center justify-center">
         <div className="text-center">
           <i className="fas fa-spinner fa-spin text-4xl text-primary mb-4"></i>
-          <p className="text-gray-600">Loading game...</p>
+          <p className="text-muted-foreground">Loading game...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-sm mx-auto min-h-screen bg-white shadow-lg">
+    <div className="max-w-sm mx-auto min-h-screen bg-background shadow-lg">
       {/* Game Status Bar */}
-      <div className="bg-white shadow-sm p-4">
+      <div className="bg-card shadow-sm p-4 border-b border-border">
         <div className="flex justify-between items-center">
           <div className="text-sm">
-            <span className="text-gray-600">Cards left:</span>
+            <span className="text-muted-foreground">Cards left:</span>
             <span className="font-bold text-primary ml-1">{cardsRemaining}</span>
           </div>
           <div className="text-sm">
-            <span className="text-gray-600">Players:</span>
+            <span className="text-muted-foreground">Players:</span>
             <span className="font-bold text-secondary ml-1">{data?.players?.length || 0}</span>
           </div>
         </div>
@@ -115,23 +115,23 @@ export default function Game({ code }: GameProps) {
       <div className="p-6 flex flex-col justify-center min-h-[calc(100vh-120px)]">
         {/* Current Card Display */}
         <div className="mb-8">
-          <div className="bg-white rounded-3xl shadow-xl p-8 text-center border-4 border-primary transform hover:scale-105 transition-transform">
+          <div className="bg-card rounded-3xl shadow-xl p-8 text-center border-4 border-primary transform hover:scale-105 transition-transform">
             {/* Card Icon/Emoji */}
             <div className="text-8xl mb-4">{currentCard?.emoji}</div>
             
             {/* Card Name */}
-            <h2 className="text-2xl font-bold text-gray-900 mb-3">{currentCard?.name}</h2>
+            <h2 className="text-2xl font-bold text-card-foreground mb-3">{currentCard?.name}</h2>
             
             {/* Card Description */}
-            <p className="text-gray-600 text-lg">{currentCard?.description}</p>
+            <p className="text-muted-foreground text-lg">{currentCard?.description}</p>
           </div>
         </div>
         
         {/* Action Instructions */}
-        <div className="bg-accent/10 rounded-2xl p-4 mb-8">
+        <div className="bg-card rounded-2xl p-4 mb-8 border border-border">
           <div className="text-center">
             <p className="text-accent font-semibold text-lg">🗣️ Yell out your card!</p>
-            <p className="text-gray-600 text-sm mt-1">Find someone with the same card to match</p>
+            <p className="text-muted-foreground text-sm mt-1">Find someone with the same card to match</p>
           </div>
         </div>
         
@@ -139,7 +139,7 @@ export default function Game({ code }: GameProps) {
         <div className="flex space-x-4">
           <Button
             onClick={handleSwipeLeft}
-            className="flex-1 bg-error text-white rounded-2xl py-4 px-6 text-lg font-semibold shadow-lg active:scale-95 transition-transform"
+            className="flex-1 bg-error text-destructive-foreground rounded-2xl py-4 px-6 text-lg font-semibold shadow-lg active:scale-95 transition-transform"
           >
             <i className="fas fa-times mr-2"></i>
             No Match
@@ -147,7 +147,7 @@ export default function Game({ code }: GameProps) {
           
           <Button
             onClick={handleSwipeRight}
-            className="flex-1 bg-secondary text-white rounded-2xl py-4 px-6 text-lg font-semibold shadow-lg active:scale-95 transition-transform"
+            className="flex-1 bg-secondary text-secondary-foreground rounded-2xl py-4 px-6 text-lg font-semibold shadow-lg active:scale-95 transition-transform"
           >
             <i className="fas fa-check mr-2"></i>
             Found Match!
@@ -158,22 +158,22 @@ export default function Game({ code }: GameProps) {
       {/* Match Confirmation Modal */}
       {showMatchModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-3xl p-6 text-center max-w-sm w-full">
+          <div className="bg-card rounded-3xl p-6 text-center max-w-sm w-full border border-border">
             <div className="text-6xl mb-4">🎉</div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Match Found!</h3>
-            <p className="text-gray-600 mb-6">Did you both complete the action?</p>
+            <h3 className="text-xl font-bold text-card-foreground mb-2">Match Found!</h3>
+            <p className="text-muted-foreground mb-6">Did you both complete the action?</p>
             
             <div className="flex space-x-3">
               <Button
                 onClick={() => setShowMatchModal(false)}
                 variant="outline"
-                className="flex-1 bg-gray-200 text-gray-800 rounded-xl py-3 px-4 font-semibold"
+                className="flex-1 bg-muted text-muted-foreground rounded-xl py-3 px-4 font-semibold border-border"
               >
                 Cancel
               </Button>
               <Button
                 onClick={handleConfirmMatch}
-                className="flex-1 bg-secondary text-white rounded-xl py-3 px-4 font-semibold"
+                className="flex-1 bg-secondary text-secondary-foreground rounded-xl py-3 px-4 font-semibold"
               >
                 Yes, Done!
               </Button>

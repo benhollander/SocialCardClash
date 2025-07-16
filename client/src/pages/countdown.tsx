@@ -40,7 +40,7 @@ export default function Countdown({ code }: CountdownProps) {
   return (
     <div className="max-w-sm mx-auto min-h-screen bg-primary">
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center text-white">
+        <div className="text-center text-primary-foreground">
           <div className="text-9xl font-bold mb-4 animate-ping">{countdownNumber}</div>
           <p className="text-xl">{countdownText}</p>
         </div>
